@@ -1,0 +1,17 @@
+career-platform/
+├── backend/
+│   ├── config/db.js
+│   ├── models/User.js
+│   ├── middleware/auth.js
+│   ├── controllers/authController.js
+│   ├── routes/authRoutes.js
+│   ├── server.js
+│   └── .env
+└── frontend/ (Vite React app)
+    └── src/
+        ├── pages/Home.jsx
+        ├── pages/Login.jsx
+        ├── pages/Register.jsx
+        ├── pages/CandidateDashboard.jsx
+        ├── pages/CompanyDashboard.jsx
+        └── App.jsx
