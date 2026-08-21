@@ -15,6 +15,7 @@ const userSchema = new mongoose.Schema(
     // company-only (filled in later)
     companyDescription: { type: String },
     location: { type: String },
+    resumeFileName: { type: String },
   },
   { timestamps: true }
 );

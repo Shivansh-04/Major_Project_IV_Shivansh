@@ -33,29 +33,35 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-white flex items-center justify-center px-4">
-      <form onSubmit={handleSubmit} className="bg-slate-900 border border-slate-800 rounded-2xl p-8 w-full max-w-md">
-        <h1 className="text-2xl font-bold mb-6">Welcome back</h1>
+    <main className="min-h-screen bg-[#f5f3ee] px-6 py-6 text-[#171816] lg:px-10">
+      <nav className="flex w-full items-center justify-between">
+        <Link to="/" className="text-xl font-black tracking-[-0.08em]">career<span className="text-[#a7d129]">/</span>ai</Link>
+        <Link to="/" className="text-xs font-bold uppercase tracking-[0.16em] text-[#6b6d65] transition hover:text-[#171816]">Back home <span aria-hidden="true">↗</span></Link>
+      </nav>
 
-        <label className="block text-sm text-slate-400 mb-1">Email</label>
-        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required
-          className="w-full mb-4 px-3 py-2 rounded-lg bg-slate-800 border border-slate-700 text-sm" />
+      <section className="grid min-h-[calc(100vh-7rem)] w-full items-center gap-12 py-14 lg:grid-cols-[0.8fr_1.2fr] lg:gap-24">
+        <div className="hidden lg:block">
+          <p className="mb-6 text-[11px] font-bold uppercase tracking-[0.2em] text-[#7b951e]">Your next move, clearer</p>
+          <h1 className="max-w-sm text-6xl font-black leading-[0.9] tracking-[-0.08em]">Pick up where you <span className="text-[#7b951e]">left off.</span></h1>
+          <div className="mt-16 border-t border-[#171816]/25 pt-4 text-sm leading-6 text-[#6b6d65]"><span className="font-bold text-[#171816]">01</span><p className="mt-8 max-w-xs">Your matches, applications, and next steps are waiting in one focused place.</p></div>
+        </div>
 
-        <label className="block text-sm text-slate-400 mb-1">Password</label>
-        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required
-          className="w-full mb-4 px-3 py-2 rounded-lg bg-slate-800 border border-slate-700 text-sm" />
+        <form onSubmit={handleSubmit} className="mx-auto w-full max-w-md border-t-2 border-[#171816] pt-7">
+          <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.2em] text-[#7b951e]">Welcome back</p>
+          <h2 className="text-4xl font-black tracking-[-0.07em]">Sign in to your signal.</h2>
+          <p className="mt-4 text-sm leading-6 text-[#6b6d65]">Keep your career direction moving.</p>
 
-        {error && <p className="text-red-400 text-sm mb-4">{error}</p>}
+          <div className="mt-9 space-y-5">
+            <div><label htmlFor="login-email" className="mb-2 block text-xs font-bold uppercase tracking-[0.14em]">Email</label><input id="login-email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} required autoComplete="email" className="w-full border-b border-[#171816]/30 bg-transparent px-0 py-3 text-sm outline-none transition placeholder:text-[#6b6d65]/60 focus:border-[#7b951e]" placeholder="you@example.com" /></div>
+            <div><label htmlFor="login-password" className="mb-2 block text-xs font-bold uppercase tracking-[0.14em]">Password</label><input id="login-password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} required autoComplete="current-password" className="w-full border-b border-[#171816]/30 bg-transparent px-0 py-3 text-sm outline-none transition placeholder:text-[#6b6d65]/60 focus:border-[#7b951e]" placeholder="Enter your password" /></div>
+          </div>
 
-        <button type="submit" disabled={loading}
-          className="w-full bg-indigo-600 hover:bg-indigo-500 py-2 rounded-lg text-sm font-medium">
-          {loading ? 'Logging in...' : 'Login'}
-        </button>
+          {error && <p role="alert" className="mt-5 border-l-2 border-red-600 bg-red-50 px-3 py-2 text-sm text-red-700">{error}</p>}
 
-        <p className="text-slate-400 text-sm mt-4 text-center">
-          Don't have an account? <Link to="/register" className="text-indigo-400">Sign up</Link>
-        </p>
-      </form>
-    </div>
+          <button type="submit" disabled={loading} className="mt-8 w-full bg-[#a7d129] px-6 py-3 text-sm font-bold transition hover:bg-[#171816] hover:text-white disabled:cursor-not-allowed disabled:opacity-60">{loading ? 'Reading your signal...' : 'Sign in'} <span aria-hidden="true">↗</span></button>
+          <p className="mt-6 text-center text-sm text-[#6b6d65]">New here? <Link to="/register" className="font-bold text-[#171816] underline decoration-[#a7d129] decoration-2 underline-offset-4">Create an account</Link></p>
+        </form>
+      </section>
+    </main>
   );
 }
